@@ -4,6 +4,7 @@
 	import { login } from '$lib/auth';
 	import { writable } from 'svelte/store';
 	import { AuthLayout, Button, Input } from '../../../components';
+	import CopyButton from '../../../components/ui/copy-button.svelte';
 
 	let username = '';
 	let password = '';
@@ -111,12 +112,22 @@
 				</span>
 			</Button>
 		</div>
-		<div class="justify-content-center flex flex-col">
-			<h4 class="justify-content-center text-lg font-medium">Demo logins</h4>
-			<span class="text-sm font-medium"
-				>Username: "test@example.com",<br />
-				Password: "test123",</span
-			>
+		<div class="justify-content-center mt-4 flex flex-col gap-3">
+			<h4 class="text-left text-lg font-medium">Demo logins</h4>
+			<div class="flex flex-col gap-2">
+				<div class="flex items-center">
+					<div class="flex-1">
+						<p class="text-sm">test@example.com</p>
+					</div>
+					<CopyButton data="test@example.com" />
+				</div>
+				<div class="flex items-center">
+					<div class="flex-1">
+						<p class="text-sm">test123</p>
+					</div>
+					<CopyButton data="test123" />
+				</div>
+			</div>
 		</div>
 	</form>
 </AuthLayout>
